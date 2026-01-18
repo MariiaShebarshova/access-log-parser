@@ -1,12 +1,19 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Введите текст и нажмите <Enter>");
-        String text = new Scanner(System.in).nextLine();
-        System.out.println("Длина текста: " + text.length());
+    public static void main(String[] args) throws IllegalAccessException {
+        Cat cat = new Cat("Vasya", 10, new ArrayList<>(Arrays.asList("Anton", "Oleg", "Igor")));
+        System.out.println("До обнуления: " + cat);
+
+        Cat.nullifyObject(cat);
+        System.out.println("После обнуления: " + cat);
+
+        // Пример с другим классом
+        Dog dog = new Dog("Rex", 5, Arrays.asList("Bob", "Max"));
+        System.out.println("До обнуления: " + dog);
+
+        Cat.nullifyObject(dog);
+        System.out.println("После обнуления: " + dog);
     }
 }
